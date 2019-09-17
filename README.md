@@ -8,3 +8,10 @@ The fetch API provides an interface for gathering resources. It takes one mandat
 2. Response comes in (in the form of a Promise).
   Can be text, blob, JSON etc.
 3. Complete & grab data in the 'body' of the response. There is a lot of metadata that comes with the fetch API.
+
+# Tabular Data
+Using data from https://data.giss.nasa.gov/gistemp/
+Fetching data and manipulating it allows for us to pull from the data, what we want, in whatever context we want.
+1. fetch
+2. Body.text(): takes a response and reads it to completion.
+3.
