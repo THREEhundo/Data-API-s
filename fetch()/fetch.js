@@ -7,29 +7,40 @@
  */
 
 //fetch() API
-fetch('cali.jpg')
- .then(response => {
-   console.log(response)
-   return response.blob()
- })
- // .then(pic => console.log(pic))
- .then((cali) => {
-   console.log(cali)
-   document.getElementById('cali').src = URL.createObjectURL(cali)
- })
+// fetch('cali.jpg')
+//  .then(response => {
+//    console.log(response)
+//    return response.blob()
+//  })
+//  // .then(pic => console.log(pic))
+//  .then((cali) => {
+//    console.log(cali)
+//    document.getElementById('cali').src = URL.createObjectURL(cali)
+//  })
 
 /*
  * ASYNC & AWAIT
  */
  caliPic()
-  .then(response => console.log(`Done!`))
-  .catch(error => {
-    console.log(`error`)
-    console.error(error)
-  })
+  // .then(response => console.log(`Done!`))
+  // .catch(error => {
+  //   console.log(`error`)
+  //   console.error(error)
+  // })
 
  async function caliPic() {
-   let response = await fetch('cali.jpg')
-   let blob = await response.blob()
+   const response = await fetch('cali.jpg')
+   const blob = await response.blob()
    document.getElementById('cali').src = URL.createObjectURL(blob)
  }
+
+txt()
+
+async function txt() {
+  const response = await fetch('placeholder.txt')
+  const textHolder = await response.text()
+  const newP = document.createElement('p')
+  newP.innerText = textHolder
+  document.body.appendChild(newP)
+    console.log(newP)
+}
