@@ -14,4 +14,6 @@ Using data from https://data.giss.nasa.gov/gistemp/
 Fetching data and manipulating it allows for us to pull from the data, what we want, in whatever context we want.
 1. fetch
 2. Body.text(): takes a response and reads it to completion.
-3.
+3. ~
+
+# Promises
