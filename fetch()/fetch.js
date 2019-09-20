@@ -6,27 +6,36 @@
  *  3. Complete the data stream. Grab the data from the 'body' of the response.
  */
 
-//fetch() API
-// fetch('cali.jpg')
-//  .then(response => {
-//    console.log(response)
-//    return response.blob()
-//  })
-//  // .then(pic => console.log(pic))
-//  .then((cali) => {
-//    console.log(cali)
-//    document.getElementById('cali').src = URL.createObjectURL(cali)
-//  })
+ /*     Fetch API
+  * Provides a generic definition Request and Response objects.
+  * Can be used for service workers, Cache API 
+  */
+
+/*****WindowOrWorkerGlobalScope.fetch()****
+ * fetch() method -> fetches a resouce from the network, returning a promise.
+ * A fetch() promise only rejects when a network error is encountered.(permissions issue)
+ * Doesn't reject on HTTP errors. then handler checks Response.ok(boolean) & Response.status(200)
+ */
+fetch('cali.jpg')
+ .then(response => {
+   console.log(response)
+   return response.blob()
+ })
+ // .then(pic => console.log(pic))
+ .then((cali) => {
+   console.log(cali)
+   document.getElementById('cali').src = URL.createObjectURL(cali)
+ })
 
 /*
  * ASYNC & AWAIT
  */
  caliPic()
-  // .then(response => console.log(`Done!`))
-  // .catch(error => {
-  //   console.log(`error`)
-  //   console.error(error)
-  // })
+  .then(response => console.log(`Done!`))
+  .catch(error => {
+    console.log(`error`)
+    console.error(error)
+  })
 
  async function caliPic() {
    const response = await fetch('cali.jpg')
