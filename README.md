@@ -17,3 +17,8 @@ Fetching data and manipulating it allows for us to pull from the data, what we w
 3. ~
 
 # Promises
+
+# Reduce()
+An array method executes a reducer function on every element of the array, resulting in a single output.
+
+Take a text file with data that needs to be represented in a cleaner way for readability
