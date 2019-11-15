@@ -11,7 +11,7 @@ async function globalTempChangeFromMean() {
   table.forEach(row => {
     const columns = row.split(',')
     const year = columns[0]
-    const temp = columns[1]
+    const temp = columns[13]
     console.log(year, temp)
     // if (row === "") {
       //   table.trim()
