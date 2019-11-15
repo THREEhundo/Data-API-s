@@ -1,4 +1,3 @@
-globalTempChangeFromMean()
 async function globalTempChangeFromMean() {
   const response = await fetch('GLB.Ts+dSST.csv')
   const globalTempData = await response.text()
@@ -11,7 +10,9 @@ async function globalTempChangeFromMean() {
   table.forEach(row => {
     const columns = row.split(',')
     const year = columns[0]
+    xlabels.push(year) // array in chart that shows year on x axis
     const temp = columns[13]
+    ytemps.push(temp) // array in chart that shows temp
     console.log(year, temp)
     // if (row === "") {
       //   table.trim()
