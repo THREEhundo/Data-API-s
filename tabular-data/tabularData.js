@@ -12,7 +12,7 @@ async function globalTempChangeFromMean() {
     const year = columns[0]
     xlabels.push(year) // array in chart that shows year on x axis
     const temp = columns[13]
-    ytemps.push(temp) // array in chart that shows temp
+    ytemps.push(parseFloat(temp) + 14) // array in chart that shows temp
     console.log(year, temp)
     // if (row === "") {
       //   table.trim()
