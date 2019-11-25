@@ -41,3 +41,5 @@ async function dataISS() {
 
 }
 dataISS()
+
+setInterval(dataISS(), 1000)
