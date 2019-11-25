@@ -22,7 +22,7 @@ const marker = L.marker([0, 0], { icon: iss400 }).addTo(mymap)
 // fetching ISS json data
 const url = 'https://api.wheretheiss.at/v1/satellites/25544'
 
-
+let firstTime = true
 
 async function dataISS() {
   const response = await fetch(url)
@@ -30,10 +30,13 @@ async function dataISS() {
   const {latitude, longitude, velocity} = apiData
 
   marker.setLatLng([latitude, longitude])
+  if (firstTime) {
+    mymap.setView([latitude, longitude], 2)
+    firstTime = false
+  }
+  document.getElementById('latitude').textContent = latitude.toFixed(2)
+  document.getElementById('longitude').textContent = longitude.toFixed(2)
+  document.getElementById('velocity').textContent = velocity.toFixed(2)
 
-
-  document.getElementById('latitude').textContent = latitude
-  document.getElementById('longitude').textContent = longitude
-  document.getElementById('velocity').textContent = velocity
 }
 dataISS()
