@@ -31,24 +31,13 @@ async function dataISS() {
 
 // Zoom
   marker.setLatLng([latitude, longitude])
-<<<<<<< HEAD
   if (firstTime) {
     mymap.setView([latitude, longitude], 4)
     firstTime = false
   }
-  document.getElementById('latitude').textContent = latitude.toFixed(2)
   document.getElementById('longitude').textContent = longitude.toFixed(2)
-  document.getElementById('velocity').textContent = velocity.toFixed(2)
-||||||| merged common ancestors
-=======
-  if (firstTime) {
-    mymap.setView([latitude, longitude], 2)
-    firstTime = false
-  }
   document.getElementById('latitude').textContent = latitude.toFixed(2)
-  document.getElementById('longitude').textContent = longitude.toFixed(2)
   document.getElementById('velocity').textContent = velocity.toFixed(2)
->>>>>>> 351eb87d455326ab3eda1964a4697e97c25c7cd9
 
 }
 dataISS()
