@@ -42,4 +42,5 @@ async function dataISS() {
 }
 dataISS()
 
-setInterval(dataISS(), 1000)
+// Updates icon position every second on the map
+setInterval(dataISS, 1000)
