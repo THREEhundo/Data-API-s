@@ -27,3 +27,14 @@ Take a text file with data that needs to be represented in a cleaner way for rea
 2. Turn into JSON.
 3. Plot JSON data onto Leaflet.js map.
 4. Have the API update very second to show real time position & speed data of the ISS.
+
+# Data Selfie App
+1. Using Node.js & Git Bash to create a static server.
+2. npm init - Using this command in Bash allows for the creation of package.JSON
+3. npm install express - creates express under dependencies in package.JSON and a node_modules folder.
+4. upload the node library into the Javascript file.
+  1. require - allows the JS file to run the dependency.
+  2. listen - set a port to listen to.
+    1. serve web page using static.
+  3. use express to serve static content.
+  4. Added my a second html file in the public folder. ISS finding app was also added in a subfolder.
