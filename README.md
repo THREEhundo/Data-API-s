@@ -38,3 +38,7 @@ Take a text file with data that needs to be represented in a cleaner way for rea
     1. serve web page using static.
   3. use express to serve static content.
   4. Added my a second html file in the public folder. ISS finding app was also added in a subfolder.
+
+# Geolocation API
+1. Navigator allows you to pull geolocation.
+2. Used Leaflet.js to show location.

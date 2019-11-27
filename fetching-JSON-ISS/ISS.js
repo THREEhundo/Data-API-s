@@ -28,7 +28,7 @@ async function dataISS() {
   const {latitude, longitude, velocity} = apiData
 
 // Zoom
-  mymap.setView([latitude, longitude], mymap.getZoom());
+  mymap.setV iew([latitude, longitude], mymap.getZoom());
   marker.setLatLng([latitude, longitude])
 
   document.getElementById('longitude').textContent = longitude.toFixed(2)
