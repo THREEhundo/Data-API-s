@@ -42,3 +42,8 @@ Take a text file with data that needs to be represented in a cleaner way for rea
 # Geolocation API
 1. Navigator allows you to pull geolocation.
 2. Used Leaflet.js to show location.
+
+# POST
+1. Server is loaded onto browser.
+2. Geolocation is found and POSTed to server using JSON.
+3. Response is logged.

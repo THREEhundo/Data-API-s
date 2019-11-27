@@ -46,16 +46,29 @@
     const marker = L.marker([50.5, 30.5]).addTo(mymap)
 
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
+      navigator.geolocation.getCurrentPosition(async position => {
         const latitude = position.coords.latitude
         const longitude = position.coords.longitude
 
         mymap.setView([latitude, longitude], mymap.getZoom())
         marker.setLatLng([latitude, longitude])
 
-        document.getElementById('latitude').textContent = position.coords.latitude.toFixed(2)
-        document.getElementById('longitude').textContent = position.coords.longitude.toFixed(2)
+        document.getElementById('latitude').textContent = latitude.toFixed(2)
+        document.getElementById('longitude').textContent = longitude.toFixed(2)
 
+        // POSTING JSON DATA
+        const locData = { latitude, longitude }
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(locData)
+        }
+
+        const response = await fetch('/api', options)
+        const newData = await response.json()
+        console.log(newData)
     })
     } else {
       console.log(`Geolocation not available`)
