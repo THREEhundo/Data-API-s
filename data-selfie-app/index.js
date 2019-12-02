@@ -12,6 +12,9 @@ const db = new Datastore('database.db')
 db.loadDatabase()
 // loads the previous data available when the server ran into memory, if the database hasnt been created.
 
+const userDB = new Datastore('users.db')
+userDB.loadDatabase()
+
 app.post('/api', (request, response) => {
   const data = request.body
   const timestamp = Date.now()
@@ -23,6 +26,17 @@ app.post('/api', (request, response) => {
     timestamp: timestamp,
     latitude: data.latitude,
     longitude: data.longitude
+  })
+})
+
+app.post('/userData', (request, response) => {
+  const data = request.body
+  userDB.insert(data)
+  response.json({
+    status: 'success',
+    name: data.name,
+    email: data.mail,
+    message: data.msg
   })
 })
 // Callback to get and give data.
