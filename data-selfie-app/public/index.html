@@ -78,11 +78,13 @@
 
     <h1>Data Selfie App</h1>
 
-    <a href="#">hello</a> |
-    <a href="goodbye.html">goodbye</a> |
-    <a href="/fetching-JSON-ISS/index.html">
-      Where is the ISS right now?</a>
-    <p>Hello!</p>
+    <nav>
+      <a href="#">hello</a> |
+      <a href="goodbye.html">goodbye</a> |
+      <a href="/fetching-JSON-ISS/index.html">
+        Where is the ISS right now?</a> |
+        <a href="/allData.html">Database Query</a>
+    </nav>
 
     <p>Latitude: <span id="latitude"></span>°<br>
        Longitude: <span id="longitude"></span>°
@@ -109,8 +111,9 @@
       </div>
     </form>
 
+
     <script type="text/javascript">
-    let latitude, longitude;
+    let latitude, longitude
 
     const mymap = L.map('myLocation').setView([0, 0], 2)
 
@@ -147,7 +150,7 @@
       const mail = document.getElementById('mail').value
       const msg = document.getElementById('msg').value
       const userInfo = {
-        name, mail, msg
+        name, mail,
       }
       const uniqueUser = {
         method: 'POST',

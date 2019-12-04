@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data</title>
+  </head>
+  <body>
+    <h1>Database Query</h1>
+
+  </body>
+  <script type="text/javascript">
+
+    databaseQuery()
+    async function databaseQuery() {
+      const response = await fetch('/api')
+      const data = await response.json()
+
+      const secondResponse = await fetch('/userData')
+      const secondDataset = await secondResponse.json()
+
+      const thirdResponse = await fetch('/api')
+      const thirdDataset = await thirdResponse.json()
+
+      let index, index1;
+
+      // GET
+      for ( item of data ) {
+        index1 = data.indexOf(item)
+
+        if (!item.latitude) {
+        // if (!item.latitude) {
+          // console.log(item, 'oy!');
+          data.splice(index1, 1)
+          console.log(index1, item, 'YO!');
+          console.log(item);
+        }
+        // else if (item.length) {
+        //   // data.splice(index1, 1)
+        //   console.log(index1, item, 'OY!')
+        // }
+
+        if(item.latitude) {
+        const root = document.createElement('div')
+        const geo = document.createElement('div')
+        const date = document.createElement('div')
+        const dateString = new Date(item.timestamp).toLocaleString()
+        const fixedLat = item.latitude.toFixed(2)
+        const fixedLong = item.longitude.toFixed(2)
+
+          geo.textContent = `Latitude: ${fixedLat}°, Longitude: ${fixedLong}°`
+          date.textContent = `${dateString}`
+
+        root.append(geo, date)
+        document.body.append(root)
+      }
+      // console.log(data);
+      // console.log(index1, data)
+      }
+      console.log(data);
+
+      // GET
+      for ( item of secondDataset ) {
+        const root = document.createElement('div')
+        const name = document.createElement('div')
+        const email = document.createElement('div')
+        const msg = document.createElement('div')
+
+        name.textContent = `Name: ${item.name}`
+        email.textContent = `E-Mail Address: ${item.mail}`
+        msg.textContent = `Message Left: ${item.msg}`
+
+        root.append(name, email, msg)
+        document.body.append(root)
+      }
+
+      // DELETE
+      for (item in thirdDataset) {
+        // Problem with item.names that had the property of ""
+        if (thirdDataset[item].name || thirdDataset[item].name === "") {
+          // console.log(thirdDataset[item])
+        }
+        if (!thirdDataset[item].latitude) {
+          // console.log(thirdDataset[item], `yo`);
+          index = thirdDataset.findIndex(item => item)
+          thirdDataset.splice(index, 1)
+          // console.log(index)
+        }
+          // const position = thirdDataset.indexOf(item)
+          // index = thirdDataset.findIndex(item => item)
+          // console.log(index);
+          // const newData = thirdDataset.splice(index, 1)
+          // console.log(position, [item], thirdDataset[item])
+        // if (item.name) {
+          // index = thirdDataset.findIndex(item => {
+            // item.name === "sam"
+
+
+        // })
+          // thirdDataset.splice(index, 1)
+          // }
+          //console.log(item, index);
+        // console.log(thirdDataset)
+      }
+      // console.log(thirdDataset)
+      // JSON.stringify(item)
+      // if (item.name || item.mail || item.msg) {
+      //   console.log(item);
+        // const index = item.findIndex(data)
+        // data.splice(index, 1)
+      // }
+    }
+
+  </script>
+</html>
