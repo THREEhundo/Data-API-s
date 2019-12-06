@@ -4,10 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style media="screen">
+      div {
+        margin: 0.5em;
+      }
+      p {
+        margin: 0;
+      }
+    </style>
     <title>Data</title>
   </head>
   <body>
     <h1>Database Query</h1>
+    <nav>
+      <a href="index.html">Front Page</a> |
+      <a href="goodbye.html">goodbye</a> |
+      <a href="/fetching-JSON-ISS/index.html">
+        Where is the ISS right now?</a> |
+        <a href="/allData.html">Database Query</a>
+    </nav>
 
   </body>
   <script type="text/javascript">
@@ -47,8 +62,8 @@
       for (let item of noName) {
         if(item.latitude) {
         const root = document.createElement('div')
-        const geo = document.createElement('div')
-        const date = document.createElement('div')
+        const geo = document.createElement('p')
+        const date = document.createElement('p')
         const dateString = new Date(item.timestamp).toLocaleString()
         const fixedLat = item.latitude.toFixed(2)
         const fixedLong = item.longitude.toFixed(2)
@@ -66,9 +81,9 @@
       // GET
       for ( let item of secondDataset ) {
         const root = document.createElement('div')
-        const name = document.createElement('div')
-        const email = document.createElement('div')
-        const msg = document.createElement('div')
+        const name = document.createElement('p')
+        const email = document.createElement('p')
+        const msg = document.createElement('p')
 
         name.textContent = `Name: ${item.name}`
         email.textContent = `E-Mail Address: ${item.mail}`
