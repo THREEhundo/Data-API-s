@@ -26,21 +26,25 @@
       let index, index1;
 
       // GET
-      for ( item of data ) {
-        index1 = data.indexOf(item)
+      let invalidEntires = 0
 
-        if (!item.latitude) {
-        // if (!item.latitude) {
-          // console.log(item, 'oy!');
-          data.splice(index1, 1)
-          console.log(index1, item, 'YO!');
-          console.log(item);
+      function hasCoords(obj) {
+        return obj  !== undefined
+      }
+
+      function filterByName(item) {
+        if (hasCoords(item.latitude)) {
+          return true
         }
-        // else if (item.length) {
-        //   // data.splice(index1, 1)
-        //   console.log(index1, item, 'OY!')
-        // }
+        invalidEntires++
+        return false
+      }
 
+      const noName = data.filter(filterByName)
+      console.log(invalidEntires);
+      console.log(noName);
+
+      for (let item of noName) {
         if(item.latitude) {
         const root = document.createElement('div')
         const geo = document.createElement('div')
@@ -49,19 +53,18 @@
         const fixedLat = item.latitude.toFixed(2)
         const fixedLong = item.longitude.toFixed(2)
 
-          geo.textContent = `Latitude: ${fixedLat}°, Longitude: ${fixedLong}°`
-          date.textContent = `${dateString}`
+        geo.textContent = `Latitude: ${fixedLat}°, Longitude: ${fixedLong}°`
+        date.textContent = `${dateString}`
 
         root.append(geo, date)
         document.body.append(root)
       }
-      // console.log(data);
-      // console.log(index1, data)
-      }
+    }
+
       console.log(data);
 
       // GET
-      for ( item of secondDataset ) {
+      for ( let item of secondDataset ) {
         const root = document.createElement('div')
         const name = document.createElement('div')
         const email = document.createElement('div')
@@ -75,42 +78,12 @@
         document.body.append(root)
       }
 
-      // DELETE
-      for (item in thirdDataset) {
-        // Problem with item.names that had the property of ""
-        if (thirdDataset[item].name || thirdDataset[item].name === "") {
-          // console.log(thirdDataset[item])
-        }
-        if (!thirdDataset[item].latitude) {
-          // console.log(thirdDataset[item], `yo`);
-          index = thirdDataset.findIndex(item => item)
-          thirdDataset.splice(index, 1)
-          // console.log(index)
-        }
-          // const position = thirdDataset.indexOf(item)
-          // index = thirdDataset.findIndex(item => item)
-          // console.log(index);
-          // const newData = thirdDataset.splice(index, 1)
-          // console.log(position, [item], thirdDataset[item])
-        // if (item.name) {
-          // index = thirdDataset.findIndex(item => {
-            // item.name === "sam"
+    console.log(thirdDataset);
+    // DELETE
 
+    const deletedNoName = thirdDataset.filter(filterByName)
+    console.log(deletedNoName);
 
-        // })
-          // thirdDataset.splice(index, 1)
-          // }
-          //console.log(item, index);
-        // console.log(thirdDataset)
-      }
-      // console.log(thirdDataset)
-      // JSON.stringify(item)
-      // if (item.name || item.mail || item.msg) {
-      //   console.log(item);
-        // const index = item.findIndex(data)
-        // data.splice(index, 1)
-      // }
-    }
-
+}
   </script>
 </html>
